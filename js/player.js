@@ -7,7 +7,7 @@ Paint.player = {
   const gun=Paint.makeWeapon('rifle',material);gun.scale.setScalar(.5);gun.position.set(.25,1.15,-.35);group.add(gun);
   scene.add(group);this.mesh=group;this.position=group.position;this.reset();
  },
- reset(){this.position.set(0,0,10);this.health=Paint.config.player.health;this.coins=0;this.kills=0;this.velocityY=0;this.yaw=0;this.pitch=0;this.aim=false;},
+ reset(){this.position.set(0,0,10);this.maxHealth=Paint.config.player.health;this.health=this.maxHealth;this.damageMultiplier=1;this.reloadMultiplier=1;this.buffs=[];this.coins=0;this.kills=0;this.velocityY=0;this.yaw=0;this.pitch=0;this.aim=false;},
  update(dt,keys){
   const c=Paint.config.player;let x=Number(keys.has('KeyD'))-Number(keys.has('KeyA')),z=Number(keys.has('KeyS'))-Number(keys.has('KeyW'));
   const length=Math.hypot(x,z)||1,speed=keys.has('ShiftLeft')?c.sprint:c.speed;
